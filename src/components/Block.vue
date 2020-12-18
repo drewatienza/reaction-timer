@@ -1,5 +1,6 @@
 <template>
   <div class="block" v-if="showBlock" @click='stopTimer'>
+  <!-- <div class="block" @click='stopTimer'> -->
     Click Me
   </div>
 </template>
@@ -28,7 +29,7 @@ export default {
     },
     stopTimer() {
       clearInterval(this.timer)
-      console.log(this.reactionTime);
+      this.$emit('end', this.reactionTime)
     }
   }
 }
@@ -39,6 +40,17 @@ export default {
     width: 400px;
     border-radius: 5px;
     background: #0faf87;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    margin: 40px auto;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+  }
+  .block:focus {
+    width: 400px;
+    border-radius: 5px;
+    background: firebrick;
     color: #fff;
     text-align: center;
     padding: 100px 0;
